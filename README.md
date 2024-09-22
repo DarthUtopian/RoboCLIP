@@ -6,7 +6,7 @@ This repository contains the implementation for the NeurIPS 2023 paper, [RoboCLI
 We recommend using conda for installation and provide a `.yml` file for installation. 
 
 ```sh
-git clone https://github.com/sumedh7/RoboCLIP.git --recursive
+git clone https://github.com/DarthUtopian/RoboCLIP.git --recursive
 cd RoboCLIP
 conda env create -f environment_roboclip.yml
 conda activate roboclip
@@ -14,6 +14,7 @@ pip install -e mjrl
 pip install -e Metaworld
 pip install -e kitchen_alt
 pip install -e kitchen_alt/kitchen/envs
+pip install -e stable-baselines3-1.8.0
 wget https://www.rocq.inria.fr/cluster-willow/amiech/howto100m/s3d_howto100m.pth
 wget https://www.rocq.inria.fr/cluster-willow/amiech/howto100m/s3d_dict.npy
 mv S3D_HowTo100M/s3dg.py ./
@@ -30,7 +31,7 @@ To run experiments on the Metaworld environment suite with the sparse learnt rew
 We provide the gifs used in our experiments within the `gifs/`.
 Then run: 
 ```sh
-python metaworld_envs.py --env-type sparse_learnt --env-id drawer-open-v2-goal-hidden --dir-add <add experiment identifier>
+D4RL_SUPPRESS_IMPORT_ERROR=1 python metaworld_envs.py --env-type sparse_learnt --env-id drawer-open-v2-goal-hidden --dir-add experiments
 ```
 
 To run the Kitchen experiments, similarly specify the gif path on line 345 and then run the following line with `--env-id` as `Kettle`, `Hinge` or `Slide`. 
